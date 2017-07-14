@@ -1,15 +1,25 @@
 /**
  * Created by koolhavis on 7/11/17.
  */
-var express = require('express');
+let express = require('express');
 
 //create our app
 
-var app = express();
+let app = express();
+
+const PORT = pocess.env.PORT || 3000;
+
+app.use(function (req, res, next) {
+    if (req.headers['x-forwarded-proto'] === 'http'){
+        next();
+    }else {
+        res.redirect('http://' + req.hostname + req.url);
+    }
+});
 
 app.use(express.static('public'));
 
-app.listen(3000, function () {
-    console.log('server is up')
+app.listen(PORT, function () {
+    console.log('server is up' + PORT);
 
-})
+});
