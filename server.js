@@ -9,6 +9,9 @@ let app = express();
 
 const PORT = pocess.env.PORT || 3000;
 
+
+
+//middleware
 app.use(function (req, res, next) {
     if (req.headers['x-forwarded-proto'] === 'http'){
         next();
@@ -17,7 +20,9 @@ app.use(function (req, res, next) {
     }
 });
 
+
 app.use(express.static('public'));
+
 
 app.listen(PORT, function () {
     console.log('server is up' + PORT);
