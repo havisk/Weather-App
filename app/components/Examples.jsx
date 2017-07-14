@@ -1,19 +1,23 @@
 let React = require('react');
+let {Link} = require('react-router');
 
 
-
-
-// let Examples = React.createClass({
-//     render: function () {
-//         return(
-//             <h3>Examples Component</h3>
-//         )
-//     }
-// });
 
 let Examples = (props) => {
     return(
-        <h3>Examples</h3>
+        <div>
+            <h1 className="text-center">Examples</h1>
+            <p>Here are a few example locations to try out:</p>
+            <ol>
+                <li>
+                    <Link to ='/?location=Marietta'>Marietta</Link>
+                </li>
+                <li>
+                    <Link to='/?location=Bora Bora'>Bora Bora</Link>
+                </li>
+            </ol>
+        </div>
+
     )
 };
 
