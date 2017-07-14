@@ -20,6 +20,6 @@ app.use(function (req, res, next) {
 app.use(express.static('public'));
 
 app.listen(PORT, function () {
-    console.log('server is up')
+    console.log('server is up ' + PORT);
 
 });
