@@ -1,30 +1,25 @@
 /**
  * Created by koolhavis on 7/11/17.
  */
-let express = require('express');
+var express = require('express');
 
 //create our app
 
-let app = express();
+var app = express();
 
-const PORT = pocess.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-
-
-//middleware
 app.use(function (req, res, next) {
-    if (req.headers['x-forwarded-proto'] === 'http'){
+    if (req.headers['x-forwarded-proto'] === 'http') {
         next();
     }else {
         res.redirect('http://' + req.hostname + req.url);
     }
 });
 
-
 app.use(express.static('public'));
 
-
 app.listen(PORT, function () {
-    console.log('server is up' + PORT);
+    console.log('server is up')
 
 });
