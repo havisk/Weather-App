@@ -12,7 +12,12 @@ let React = require('react');
 
 let About = (props) => {
     return(
-        <h3>About Component</h3>
+        <div>
+            <h3>About Us</h3>
+            <p>Welcome to the About Us page!!</p>
+        </div>
+
+
     )
 };
 
