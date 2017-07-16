@@ -9,9 +9,9 @@ let About = (props) => {
             <p className="text-center">Welcome to the about page!!
             <br/>
             This app gives you the temperature of the city when entered.
-                <a href="https://facebook.github.io/react/">React.JS </a>
-                 was used build the Web App.  The <a href="http://openweathermap.org/">Weather API </a>
-                 used is from Open Weather Maps.  <a href="http://foundation.zurb.com/">Foundation </a> was used for styling
+                <a href="https://facebook.github.io/react/" target="blank">React.JS </a>
+                 was used build the Web App.  The <a href="http://openweathermap.org/" target="blank">Weather API </a>
+                 used is from Open Weather Maps.  <a href="http://foundation.zurb.com/" target="blank">Foundation </a> was used for styling
                 purposes.
             </p>
         </div>
