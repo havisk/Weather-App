@@ -22,7 +22,7 @@ let Form = React.createClass({
                 <form onSubmit={this.onFormSubmit}>
                     <div>
                         <input type="text" placeholder="Enter City Name" ref="location"/>
-                        <button>Get Weather</button>
+                        <a href="#" class="button"> Get Weather </a>
                     </div>
                 </form>
             </div>
