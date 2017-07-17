@@ -2,6 +2,7 @@ let React = require('react');
 let Form = require('Form');
 let Message = require('Message');
 let openWeatherMap = require('openWeatherMap');
+let ErrorModal = require('ErrorModal');
 
 
 let Weather = React.createClass({
@@ -11,29 +12,33 @@ let Weather = React.createClass({
             isLoading: false
         }
     },
-
-    handleSearch: function (location, temp){
+    handleSearch: function (location){
         let that = this;
 
-
-        this.setState({isLoading: true});
+        this.setState({
+            isLoading: true,
+            errorMessage: undefined
+        });
 
         openWeatherMap.getTemp(location).then(function (temp) {
             that.setState({
-                isLoading: false,
                 location: location,
-                temp: temp
-            })
-        }, function (errorMessage) {
-                that.setState({isLoading: false});
-                alert(errorMessage);
+                temp: temp,
+                isLoading: false
+            });
+        }, function (e) {
+                that.setState({
+                    isLoading: false,
+                    errorMessage: e.message
+            });
+
         });
     },
 
 
     render: function () {
 
-        let{isLoading, temp, location} = this.state;
+        let{isLoading, temp, location, errorMessage} = this.state;
 
         function renderMessage() {
             if (isLoading) {
@@ -42,12 +47,20 @@ let Weather = React.createClass({
                return <Message location={location} temp={temp}/>;
             }
         }
+        function renderError() {
+            if( typeof errorMessage === 'string'){
+               return(
+                   <ErrorModal message={errorMessage}/>
+               )
+            }
+        }
 
         return(
             <div>
                 <h1 className="text-center">Get Weather </h1>
                 <Form onSearch={this.handleSearch}/>
                 {renderMessage()}
+                {renderError()}
             </div>
 
         )

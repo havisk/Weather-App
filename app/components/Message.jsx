@@ -2,7 +2,7 @@ let React = require('react');
 
 
 
-let Message = ({temp, location}) => {
+let WeatherMessage = ({temp, location}) => {
     return(
         <h3 className="text-center">It is {temp} in {location}.</h3>
     )
@@ -11,4 +11,4 @@ let Message = ({temp, location}) => {
 
 
 
-module.exports = Message;
+module.exports = WeatherMessage;
